@@ -1,0 +1,200 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Amazon Boxer",
+        "slug": "amazon-boxer",
+        "price": 10,
+        "oldPrice": 12,
+        "inStock": true,
+        "image": {
+          "thumbnail": "/images/products/thumbnails/boxes.jpg",
+          "original": "/images/products/boxes.jpg"
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, commodi..."
+      },
+      {
+        "id": 2,
+        "name": "Nikon F6",
+        "slug": "nikon-f6",
+        "price": 3000,
+        "inStock": true,
+        "image": {
+          "thumbnail": "/images/products/thumbnails/camera.jpg",
+          "original": "/images/products/camera.jpg"
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, commodi..."
+      },
+      {
+        "id": 3,
+        "name": "Coca-Cola Zero",
+        "slug": "coca-cola-zero",
+        "price": 3,
+        "inStock": true,
+        "image": {
+          "thumbnail": "/images/products/thumbnails/cola.jpg",
+          "original": "/images/products/cola.jpg"
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, commodi..."
+      },
+      {
+        "id": 4,
+        "name": "DualSense Gamepad",
+        "slug": "dual-sense",
+        "price": 100,
+        "oldPrice": 109,
+        "inStock": true,
+        "image": {
+          "thumbnail": "/images/products/thumbnails/dualsense.jpg",
+          "original": "/images/products/dualsense.jpg"
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, commodi..."
+      },
+      {
+        "id": 5,
+        "name": "Ray Ban Glasses",
+        "slug": "glasses",
+        "price": 254.99,
+        "inStock": true,
+        "image": {
+          "thumbnail": "/images/products/thumbnails/glasses.jpg",
+          "original": "/images/products/glasses.jpg"
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, commodi..."
+      },
+      {
+        "id": 6,
+        "name": "Untitled-4 Headphones",
+        "slug": "headphones",
+        "price": 1,
+        "inStock": true,
+        "image": {
+          "thumbnail": "/images/products/thumbnails/headphones.jpg",
+          "original": "/images/products/headphones.jpg"
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, commodi..."
+      },
+      {
+        "id": 7,
+        "name": "Neardy Keyboard",
+        "slug": "neardy-keyboard",
+        "price": 100,
+        "inStock": true,
+        "image": {
+          "thumbnail": "/images/products/thumbnails/keyboard.jpg",
+          "original": "/images/products/keyboard.jpg"
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, commodi..."
+      },
+      {
+        "id": 8,
+        "name": "Light Bulb",
+        "slug": "light-bulb",
+        "price": 0.85,
+        "inStock": true,
+        "image": {
+          "thumbnail": "/images/products/thumbnails/lightbulb.jpg",
+          "original": "/images/products/lightbulb.jpg"
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, commodi..."
+      },
+      {
+        "id": 9,
+        "name": "Milk",
+        "slug": "milk",
+        "price": 2.0,
+        "inStock": true,
+        "image": {
+          "thumbnail": "/images/products/thumbnails/milk.jpg",
+          "original": "/images/products/milk.jpg"
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, commodi..."
+      },
+      {
+        "id": 10,
+        "name": "Pepsi Max",
+        "slug": "pepsi-max",
+        "price": 3,
+        "inStock": false,
+        "image": {
+          "thumbnail": "/images/products/thumbnails/pepsi.jpg",
+          "original": "/images/products/pepsi.jpg"
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, commodi..."
+      },
+      {
+        "id": 11,
+        "name": "Sony Xperia Z1",
+        "slug": "xperia-z1",
+        "price": 450,
+        "oldPrice": 600,
+        "inStock": true,
+        "image": {
+          "thumbnail": "/images/products/thumbnails/phone.jpg",
+          "original": "/images/products/phone.jpg"
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, commodi..."
+      },
+      {
+        "id": 12,
+        "name": "Gay Football Shoes",
+        "slug": "soccer-is-gay",
+        "price": 100,
+        "oldPrice": 120,
+        "inStock": true,
+        "image": {
+          "thumbnail": "/images/products/thumbnails/shoes.jpg",
+          "original": "/images/products/shoes.jpg"
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, commodi..."
+      },
+      {
+        "id": 13,
+        "name": "Silicon Spoons",
+        "slug": "silicon-spoons",
+        "price": 10,
+        "inStock": true,
+        "image": {
+          "thumbnail": "/images/products/thumbnails/spoon.jpg",
+          "original": "/images/products/spoon.jpg"
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, commodi..."
+      },
+      {
+        "id": 14,
+        "name": "Absolute Vodka",
+        "slug": "absolute-vodka",
+        "price": 30,
+        "inStock": true,
+        "image": {
+          "thumbnail": "/images/products/thumbnails/vodka.jpg",
+          "original": "/images/products/vodka.jpg"
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, commodi..."
+      },
+      {
+        "id": 15,
+        "name": "Dumb Watch",
+        "slug": "dumb-watch",
+        "price": 140,
+        "inStock": true,
+        "image": {
+          "thumbnail": "/images/products/thumbnails/watch.jpg",
+          "original": "/images/products/watch.jpg"
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, commodi..."
+      },
+      {
+        "id": 16,
+        "name": "XBox Gamepad",
+        "slug": "xbox-gamepad",
+        "price": 100,
+        "inStock": true,
+        "image": {
+          "thumbnail": "/images/products/thumbnails/xbox.jpg",
+          "original": "/images/products/xbox.jpg"
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, commodi..."
+      }
+    ]
+  }
