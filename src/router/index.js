@@ -23,7 +23,7 @@ const routes = [
     name: "Product",
     component: () => import("../views/Product.vue"),
     meta: {
-      transitionName: "slide-right",
+      transitionName: "component-fade",
     },
   },
   {

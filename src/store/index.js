@@ -1,16 +1,63 @@
 import Vuex from "vuex";
+import axios from "axios";
 
 export default new Vuex.Store({
-    state: {
-      // помещаем сюда переменные и собираем их
+  state: {
+    API_URL: "http://localhost:3000",
+    products: [],
+    product: null,
+    error: null,
+    loading: false,
+  },
+  getters: {
+    // getProducts: state => {}
+    // вычисляемые свойства на основе состояния
+  },
+  mutations: {
+    changeLoading: state => {
+      return state.loading = !state.loading
     },
-    getters: {
-      // вычисляемые свойства на основе состояния
+    changeError: (state, body) => {
+      return state.error = body
     },
-    mutations: {
-      // помещаем сюда синхронные функции для изменения состояния: добавления, редактирования, деления
+    changeProducts: (state, body) => {
+      return state.products = body
     },
-    actions: {
-      // помещаем сюда асинхронные функции, которые могут вызывать одну или несколько функций мутации
+    changeProduct: (state, body) => {
+      return state.product = body
     },
-  });
+    // помещаем сюда синхронные функции для изменения состояния: добавления, редактирования, деления
+  },
+  actions: {
+    async fetchProducts(context) {
+      context.commit('changeLoading')
+      context.commit('changeError', null)
+      try {
+        const response = await axios.get(
+          `${context.state.API_URL}/products`
+        );
+        // console.log(response);
+        context.commit('changeProducts', response.data)
+      } catch (error) {
+        context.commit('changeError', error);
+      } finally {
+        context.commit('changeLoading')
+      }
+    },
+    async fetchProduct(context, slug) {
+      context.commit('changeLoading')
+      context.commit('changeError', null)
+      try {
+        const response = await axios.get(
+          `${context.state.API_URL}/products/${slug}`
+        );
+        context.commit('changeProduct', response.data[0])
+      } catch (error) {
+        context.commit('changeError', error);
+      } finally {
+        context.commit('changeLoading')
+      }
+    },
+  },
+});
+// json-server --watch ./src/data/products.json --routes ./routes.json

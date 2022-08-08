@@ -68,10 +68,6 @@
         "slug": "headphones",
         "price": 1,
         "inStock": true,
-        "image": {
-          "thumbnail": "/images/products/thumbnails/headphones.jpg",
-          "original": "/images/products/headphones.jpg"
-        },
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, commodi..."
       },
       {

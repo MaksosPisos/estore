@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* transition */
 .slide-left-enter-active,
 .slide-left-leave-active,
 .slide-right-enter-active,
@@ -47,4 +47,16 @@
 .slide-left-leave-from {
   position: absolute;
   right: 0;
+}
+
+.products {
+  @apply mt-4 grid gap-4;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+}
+
+.component-fade-enter-active, .component-fade-leave-active {
+  transition: opacity .15s ease;
+}
+.component-fade-enter, .component-fade-leave-to {
+  opacity: 0;
 }
