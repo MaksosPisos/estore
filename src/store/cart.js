@@ -19,11 +19,11 @@ const getters = {
   getTotalPrice: (state) => {
     let total = 0;
     state.cart.forEach((item) => {
-        total += item.price;
-    })
-    return total
+      total += item.price * item.quantity;
+    });
+    return total;
   },
-  getShowCart: state => state.showCart
+  getShowCart: (state) => state.showCart,
 };
 
 const mutations = {
@@ -31,7 +31,7 @@ const mutations = {
   //   state.header = data
   // }
   changeShowCart: (state, show) => {
-    state.showCart = show
+    state.showCart = show;
   },
   addToCart: (state, body) => {
     body.quantity = 1;
@@ -41,6 +41,16 @@ const mutations = {
   delFromCart: (state, slug) => {
     state.cart = state.cart.filter((item) => item.slug !== slug);
     localStorage.tmpCart = JSON.stringify(state.cart);
+  },
+  incrementQuantity: (state, slug) => {
+    let index = state.cart.findIndex((item) => item.slug === slug);
+    state.cart[index].quantity++;
+  },
+  decrementQuantity: (state, slug) => {
+    let index = state.cart.findIndex((item) => item.slug === slug);
+    if (state.cart[index].quantity > 1) {
+      state.cart[index].quantity--;
+    }
   },
 };
 const actions = {
