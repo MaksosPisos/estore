@@ -5,10 +5,10 @@
             <div>
                 <InnerHeader :title="product ? product.name : 'Product'"></InnerHeader>
             </div>
-            <div class="card w-96 card-compact bg-base-100 shadow-xl mt-4 mx-auto" v-if="product">
+            <div class="card sm:w-96 card-compact bg-base-100 shadow-xl mt-4 mx-auto" v-if="product">
                 <figure><img
                         :src="product.image && product.image.thumbnail ? product.image.thumbnail : '/images/default-product-image.png'"
-                        :alt="product.name" class="min-h-[292px] lg:min-h-[304px] object-cover object-center" />
+                        :alt="product.name" class="min-h-[292px] lg:min-h-[304px] object-cover object-center w-full" />
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title"> {{ product.name }} </h2>
@@ -29,8 +29,14 @@
                             </span>
                         </div>
                         <div class="">
-                            <button class="btn btn-secondary rounded-r-none" :disabled="!product.inStock"><i
-                                    class="fa-duotone fa-cart-plus"></i></button>
+                            <button class="btn rounded-r-none" :disabled="!product.inStock"
+                                :class="{ 'btn-success': $store.getters.getProductInCart(product.slug) !== -1, 'btn-secondary': $store.getters.getProductInCart(product.slug) === -1 }"
+                                @click="changeCart(product)">
+                                <i class="fa-duotone fa-cart-plus"
+                                    v-if="$store.getters.getProductInCart(product.slug) === -1 && product.inStock"></i>
+                                <i class="fa-solid fa-cart-circle-xmark" v-else-if="!product.inStock"></i>
+                                <i class="fa-solid fa-cart-circle-check" v-else></i>
+                            </button>
                             <button class="btn btn-primary rounded-l-none" :disabled="!product.inStock">Buy Now</button>
                         </div>
 
@@ -68,16 +74,25 @@ export default {
         fetchProduct() {
             this.slug = this.$route.params.slug
             return this.$store.dispatch('fetchProduct', this.slug)
-        }
+        },
+    },
+    methods: {
+        changeCart(productItem) {
+            if (this.$store.getters.getProductInCart(productItem.slug) !== -1) {
+                this.$store.commit('delFromCart', productItem.slug)
+            } else {
+                this.$store.commit('addToCart', productItem)
+            }
+        },
     },
     mounted() {
         this.fetchProduct
     },
     watch: {
-        // '$route.path'() {
-        //     this.slug = this.$route.params.slug
-        //     this.fetchProduct
-        // },
+        '$route.path'() {
+            this.slug = this.$route.params.slug
+            this.fetchProduct
+        },
         $route(to, from) {
             if (to.name === 'Shop') {
                 to.meta.transitionName = 'slide-left'

@@ -1,7 +1,11 @@
 import Vuex from "vuex";
 import axios from "axios";
+import cart from './cart'
 
 export default new Vuex.Store({
+  modules: {
+    cart
+  },
   state: {
     API_URL: "http://localhost:3000",
     products: [],

@@ -14,7 +14,6 @@
             <div class="products" v-else>
                 <ProductCard v-for="item in products" :product="item"></ProductCard>
             </div>
-
         </div>
     </div>
 
@@ -40,9 +39,10 @@ export default {
         },
         fetchProducts() {
             return this.$store.dispatch('fetchProducts')
-        }
+        },
     },
     methods: {
+
     },
     mounted() {
         this.fetchProducts
