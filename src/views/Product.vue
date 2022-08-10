@@ -37,7 +37,9 @@
                                 <i class="fa-solid fa-cart-circle-xmark" v-else-if="!product.inStock"></i>
                                 <i class="fa-solid fa-cart-circle-check" v-else></i>
                             </button>
-                            <button class="btn btn-primary rounded-l-none" :disabled="!product.inStock">Buy Now</button>
+                            <router-link to="/shop/pay" class="btn btn-primary rounded-l-none"
+                                :class="{ 'pointer-events-none': !product.inStock, 'opacity-30': !product.inStock }"
+                                @click="addToPay(product)">Buy Now</router-link>
                         </div>
 
                     </div>
@@ -45,16 +47,20 @@
             </div>
             <!-- <router-link to="/product/amazon-boxer" class="text-black"> shoes </router-link> -->
         </div>
+        <AlertCart v-if="$store.getters.getShowAlert" :alertType="$store.getters.getTypeAlert"
+            @click="changeShowAlert(false)" class="z-[100]" />
     </div>
 
 </template>
 
 
 <script>
+import AlertCart from '../components/AlertCart.vue'
 import InnerHeader from '../components/InnerHeader.vue'
 export default {
     components: {
         InnerHeader,
+        AlertCart,
     },
     data() {
         return {
@@ -77,15 +83,27 @@ export default {
         },
     },
     methods: {
+        changeShowAlert(show) {
+            this.$store.commit('changeShowAlert', show)
+        },
         changeCart(productItem) {
             if (this.$store.getters.getProductInCart(productItem.slug) !== -1) {
                 this.$store.commit('delFromCart', productItem.slug)
+                this.$store.commit('changeTypeAlert', 'error')
             } else {
                 this.$store.commit('addToCart', productItem)
+                this.$store.commit('changeTypeAlert', 'success')
             }
+            this.changeShowAlert(true)
         },
+        addToPay(productItem) {
+            if (this.$store.getters.getProductInCart(productItem.slug) === -1) {
+                this.$store.commit('addToCart', productItem)
+            }
+        }
     },
     mounted() {
+        this.changeShowAlert(false)
         this.fetchProduct
     },
     watch: {

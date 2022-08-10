@@ -21,7 +21,7 @@
                                 -
                             </button>
                             <span class="w-6 text-center">{{ product.quantity }}</span>
-                            <button class="bg-emerald-400 px-2 rounded-md"  @click="incrementQuantity(product.slug)">
+                            <button class="bg-emerald-400 px-2 rounded-md" @click="incrementQuantity(product.slug)">
                                 +
                             </button>
                         </div>
@@ -40,9 +40,8 @@
                     <span>{{ getTotalPrice.toFixed(2) }}$</span>
                 </div>
             </div>
-            <button class="btn btn-primary text-black font-bold">
-                Buy now
-            </button>
+            <router-link to="/shop/pay" class="btn btn-primary rounded-l-none text-black"
+                @click="closeModalCart">Buy Now</router-link>
         </div>
     </div>
 </template>
@@ -75,9 +74,12 @@ export default {
         decrementQuantity(slug) {
             return this.$store.commit('decrementQuantity', slug)
         },
-        delFromCart(slug){
+        delFromCart(slug) {
             return this.$store.commit('delFromCart', slug)
-        }
+        },
+        closeModalCart() {
+            this.changeShowCart(false)
+        },
     },
 }
 </script>

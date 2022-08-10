@@ -15,6 +15,7 @@
                 <ProductCard v-for="item in products" :product="item"></ProductCard>
             </div>
         </div>
+        <AlertCart v-if="$store.getters.getShowAlert" :alertType="$store.getters.getTypeAlert" @click="changeShowAlert(false)" class="z-[100]" />
     </div>
 
 </template>
@@ -22,10 +23,12 @@
 <script>
 import ProductCard from '../components/ProductCard.vue'
 import InnerHeader from '../components/InnerHeader.vue'
+import AlertCart from '../components/AlertCart.vue'
 export default {
     components: {
         ProductCard,
-        InnerHeader
+        InnerHeader,
+        AlertCart
     },
     computed: {
         products() {
@@ -42,9 +45,12 @@ export default {
         },
     },
     methods: {
-
+        changeShowAlert(show) {
+            this.$store.commit('changeShowAlert', show)
+        },
     },
     mounted() {
+        this.changeShowAlert(false)
         this.fetchProducts
     },
 }

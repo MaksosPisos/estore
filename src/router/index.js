@@ -27,11 +27,11 @@ const routes = [
     },
   },
   {
-    path: "/cart",
-    name: "Cart",
-    component: () => import("../views/Cart.vue"),
+    path: "/shop/pay",
+    name: "Pay",
+    component: () => import("../views/Pay.vue"),
     meta: {
-      transitionName: "slide-left",
+      transitionName: "slide-right",
     },
   },
   {

@@ -1,6 +1,8 @@
 const state = () => ({
   cart: localStorage.tmpCart ? JSON.parse(localStorage.tmpCart) : [],
   showCart: false,
+  showAlert: false,
+  typeAlert: '',
 });
 
 const getters = {
@@ -24,12 +26,17 @@ const getters = {
     return total;
   },
   getShowCart: (state) => state.showCart,
+  getShowAlert: (state) => state.showAlert,
+  getTypeAlert: (state) => state.typeAlert,
 };
 
 const mutations = {
-  // setHeader (state, data) {
-  //   state.header = data
-  // }
+  changeShowAlert: (state, show, type) => {
+    state.showAlert = show
+  },
+  changeTypeAlert: (state, type) => {
+    state.typeAlert = type
+  },
   changeShowCart: (state, show) => {
     state.showCart = show;
   },
